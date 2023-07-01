@@ -1,13 +1,6 @@
-# syntax=docker/dockerfile:1.4
-FROM --platform=$BUILDPLATFORM python:3.10-alpine AS builder
-
+FROM python:3.6
+MAINTAINER Okehie Uchenna "okehieuchenna@gmail.com" # Change the name and email address
+COPY app.py test.py /app/
 WORKDIR /app
-
-COPY requirements.txt /app
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip3 install -r requirements.txt
-
-COPY . /app
-
-ENTRYPOINT ["python3"]
-CMD ["app.py"]
+RUN pip install flask pytest flake8 # This downloads all the dependencies
+CMD ["python", "app.py"]
