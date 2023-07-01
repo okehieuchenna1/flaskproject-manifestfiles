@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskweb-deployment
+  labels:
+    app: flaskweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flaskweb
+  template:
+    metadata:
+      labels:
+        app: flaskweb
+    spec:
+      containers:
+      - name: flaskweb
+        image: bopgeek/pythonargocd:61
+        #resources:
+          #limits:
+            #memory: "128Mi"
+            #cpu: "500m"
+        ports:
+        - containerPort: 8000
