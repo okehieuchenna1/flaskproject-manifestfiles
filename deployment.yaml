@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,7 +16,7 @@ spec:
         app: flaskweb
     spec:
       containers:
-      - name: flaskweb
-        image: okehieuchenna/flask-project:58
-        ports:
-        - containerPort: 5000
+        - name: flaskweb
+          image: okehieuchenna/flask-project:58
+          ports:
+            - containerPort: 5000
