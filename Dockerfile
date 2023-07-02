@@ -1,6 +1,20 @@
-FROM python:3.6
-MAINTAINER Okehie Uchenna "okehieuchenna@gmail.com" # Change the name and email address
-COPY app.py test.py /app/
-WORKDIR /app
-RUN pip install flask pytest flake8 # This downloads all the dependencies
-CMD ["python", "app.py"]
+FROM python:3.6-slim
+
+RUN  apt-get clean && apt-get -y update
+
+RUN apt-get -y install \
+    nginx \
+    python3-dev \
+    build-essential
+
+
+
+
+COPY ./requirements.txt ./requirements.txt
+RUN pip install -r requirements.txt
+
+COPY ./app.py ./app.py 
+
+EXPOSE 5000
+
+CMD ["python3", "app.py"]
