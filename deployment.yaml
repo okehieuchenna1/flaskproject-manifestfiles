@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flaskweb
-        image: okehieuchenna/flask-project:25
+        image: okehieuchenna/flask-project:51
         #resources:
           #limits:
             #memory: "128Mi"
