@@ -1,20 +1,10 @@
-FROM python:3.6-slim
+FROM python:3.8-slim-buster
 
-RUN  apt-get clean && apt-get -y update
+WORKDIR /python-docker
 
-RUN apt-get -y install \
-    nginx \
-    python3-dev \
-    build-essential
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
 
+COPY ./app.py ./app.py
 
-
-
-COPY ./requirements.txt ./requirements.txt
-RUN pip install -r requirements.txt
-
-COPY ./app.py ./app.py 
-
-EXPOSE 5000
-
-CMD ["python3", "app.py"]
+CMD [ "python3", "-m", "flask", "run", "--host=0.0.0.0"]
