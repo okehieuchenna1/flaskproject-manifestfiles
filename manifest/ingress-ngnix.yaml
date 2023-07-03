@@ -4,7 +4,7 @@ metadata:
   name: flaskweb-service
 spec:
   rules:
-  - host: flask.ccanyon.net
+  - host: ccanyon.net
     http:
       paths:
       - path: /
