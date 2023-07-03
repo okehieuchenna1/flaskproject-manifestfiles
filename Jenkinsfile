@@ -39,9 +39,9 @@ pipeline {
                 echo 'Executing update on k8s deployment file..'
                 script{
                     sh """
-                    cat deployment.yaml
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yaml
-                    cat deployment.yaml
+                    cat manifest/deployment.yaml
+                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" manifest/deployment.yaml
+                    cat manifest/deployment.yaml
                     """
                 }
             }
