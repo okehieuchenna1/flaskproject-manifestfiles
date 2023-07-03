@@ -73,8 +73,8 @@ pipeline {
                 echo 'Deploying on K8s Cluster..'
                 script{
                     sh """
-                        kubectl apply -f https://raw.githubusercontent.com/okehieuchenna1/flaskproject-manifestfiles/main/deployment.yaml
-                        kubectl apply -f https://raw.githubusercontent.com/okehieuchenna1/flaskproject-manifestfiles/main/service.yaml
+                        kubectl apply -f https://raw.githubusercontent.com/okehieuchenna1/flaskproject-manifestfiles/main/manifest/deployment.yaml
+                        kubectl apply -f https://raw.githubusercontent.com/okehieuchenna1/flaskproject-manifestfiles/main/manifest/service.yaml
                     """
                 }
             }
