@@ -53,7 +53,7 @@ pipeline {
                 sh """
                   git config --global user.name "Uchenna Okehie"
                   git config --global user.email "okehieuchenna@gmail.com"
-                  git add deployment.yaml
+                  git add manifest/deployment.yaml
                   git commit -m "updating the deployment file to ${BUILD_NUMBER} build"
                   
  
