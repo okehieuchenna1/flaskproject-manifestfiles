@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: flaskweb-service
 spec:
+  tls:
+  - hosts:
+    - ccanyon.net
+    secretName: example-app-tls
   rules:
   - host: ccanyon.net
     http:
